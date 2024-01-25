@@ -11,13 +11,13 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-image: url('bgimg2.jpg');
+            background-image: url('bg3.png');
             background-repeat: no-repeat;
-            background-attachment: fixed;
             background-size: cover;
         }
 
         .login-container {
+            margin-left: 700px;
             background-color: #333333;
             padding: 20px;
             border-radius: 8px;
@@ -40,7 +40,7 @@
             border-radius: 4px;
         }
 
-        .login-container button {
+        .sub{
             width: 100%;
             padding: 10px;
             background-color: #4caf50;
@@ -50,7 +50,7 @@
             cursor: pointer;
         }
 
-        .login-container button:hover {
+        .sub:hover {
             background-color: #45a049;
         }
         .login-header{
@@ -66,27 +66,52 @@
             border-bottom: solid 1px whitesmoke;
             margin-bottom: 10px;
         }
+        .mode{
+            background-color: #333333;
+            border: none;
+            color: whitesmoke;
+        }
+        .mode:hover{
+            cursor: pointer;
+        }
+        p{
+            color: whitesmoke;
+            margin-left: 700px;
+        }
+        a:visited{
+            color:aquamarine;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
-    <h2 style="color: #3a3a3a;">Login</h2>
+    <h2 style="color: whitesmoke; margin-left: 700px;font-size: 50px;">Login</h2>
 <div class="login-container">
     <table>
         <tr>
-            <td style="border-right: solid 1px whitesmoke;"><h3>admin</h3></td>
-            <td style="padding-left: 10px;"><h3>user</h3></td>
+            <td style="border-right: solid 1px whitesmoke;"><button class="mode" onclick="adminMode()"><h3>admin</h3></button></td>
+            <td style="padding-left: 10px;"><button class="mode" onclick=userMode()><h3>user</h3></button></td>
         </tr>
     </table>
     <form >
-        <label for="username">Username:</label>
+        <label for="username" id="u1">Roll No:</label>
         <input type="text" id="username" name="username" required>
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
 
-        <button type="submit">Login</button>
+        <button class="sub" type="submit">Login</button>
     </form>
 </div>
-
+<p>Are you new to the platform?Then <a href="">Register</a> now</p>
+<script>
+    function adminMode(){
+        document.getElementById("u1").innerText = "Admin ID:";
+        console.log("admin");
+    }
+    function userMode(){
+        document.getElementById("u1").innerText = "Roll No:";
+    }   
+</script>
 </body>
 </html>
