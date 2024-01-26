@@ -60,18 +60,15 @@
 
 body {
   
-    backdrop-filter: blur(2px);
     margin-top: 3%;
     margin-right: 3%;
     scroll-margin-right: 50px;
     background-size: 100px 100px auto;
     height: 90vh;
     width: 100vw;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
+    background-image: url('bg3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
   
 }
 ::-webkit-scrollbar{
@@ -82,6 +79,7 @@ form {
   background: #333333;
   max-width: 500px;
   width: 100%;
+  margin-left: 850px;
   border-radius: 5px;
   box-shadow: 0 10px 13px rgba(153, 149, 149, 0.05);
   scroll-margin-right: 50px;
@@ -226,6 +224,6 @@ form .password i {
         <input name="submit" type="submit" value="Submit">
       </div>
     </form>
-    
+
   </body>
 </html>
