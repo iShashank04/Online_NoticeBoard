@@ -8,30 +8,6 @@ if(!isset($_SESSION["rollno"])){
 echo "welcome {$_SESSION["rollno"]}";
 
 
-if (isset($_POST["submit"])){
-    $result = $_POST["vote_" . $_POST["id"]]; 
-    $submitButtonId = $_POST["id"];
-    $rollno = $_SESSION["rollno"];
-
-    $mysql="INSERT INTO results (id,rollno,result) VALUES('$submitButtonId','$rollno','$result')";
-    if ($conn->query($mysql) === TRUE) {
-        //
-     } else {
-       echo "Error: " . $mysql . "<br>" . $conn->error;
-    }
-
-    $sql = "UPDATE posts SET $result = $result + 1 WHERE id = $submitButtonId";
-    if ($conn->query($sql) === TRUE) {
-        //
-    } else {
-        echo "Error updating record: " . $conn->error;
-    }
-
-
-}
-
-
-
 
 
 
@@ -60,6 +36,7 @@ if (isset($_POST["submit"])){
 <form action="logout.php" method="post">
         <input type="submit" value="Logout">
 </form>
+<a href="profile.php">Profile</a>
 
 <?php
 $result = $conn->query("SELECT * FROM posts ORDER BY `time` DESC");
@@ -97,7 +74,7 @@ while ($row = $result->fetch_assoc()) {
     }
 
    
-    echo '<form action="userportal.php" method = "post">';
+    echo '<form action="test.php" method = "post">';
     echo '<input type="radio" name="vote_' . htmlspecialchars($id) . '" value="likes" required ><span>Like</span>';
     echo '<input type="radio" name="vote_' . htmlspecialchars($id) . '" value="dislikes" required><span>Dislike</span>';
     echo '<input type="submit" name="submit" value="Submit" ' . ($disable ? 'disabled' : '') . '>';
