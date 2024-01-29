@@ -68,19 +68,19 @@ while ($row = mysqli_fetch_assoc($name)) {
         align-items: center;
         flex-direction: row;
         justify-content: space-between;
-        background-color: #6483ed91;
+        background-color: black;
         position: sticky;
         top:0;
         margin-bottom: 8px;
     }
     .main h1{
         margin-left: 450px;
-	color: black;
+	color: #fbf6f6;
 	font-weight: normal;
 	font-size: 60px;
     font-weight: 100;
 	line-height: 42px;
-	text-shadow: 0 2px white, 0 3px #777;
+	text-shadow: 0 2px #030202, 0 3px #777;
     } 
     #user_logo{
         width: 60px;
@@ -116,13 +116,17 @@ while ($row = mysqli_fetch_assoc($name)) {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        margin-left: 210px;
+        /*justify-content: center; */
+        background-image: url('bg.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
     }
     .sidebar {
   margin: 0;
   padding: 0;
   width: 200px;
-  background-color: #f1f1f1;
+  background-color: #acacac;;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -134,10 +138,43 @@ while ($row = mysqli_fetch_assoc($name)) {
   padding: 16px;
   text-decoration: none;
 }
+.sidebar ul li:hover{
+    background-color: #f1f1f1;
+}
+.sidebar ul li a{
+    text-decoration: none;
+    font-size: 26px;
+    font-family: fantasy;
+    color: black;
+}
+.side_inp{
+    border:none; background-color:#acacac;font-size: 26px;
+                        font-family: fantasy;
+                        color: black;
+}
+.side_inp:hover{
+    background-color: #f1f1f1;
+}
 .reaction{
-    margin-top: 20px;
+    margin-top: 15px;
+    margin-right: 50px;
+}
+.react_icon{
+    width: 40px;
+    height: 50px;
+}
+.react_icon:active{
+    transform: scale(1.5);
+
+}
+.reaction_sub{
+    padding-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 100px;
 }
 
+.reaction_sub
 </style>
 <body>
     <!-- <img class="title" src="title.jpg" alt=""> -->
@@ -153,8 +190,8 @@ while ($row = mysqli_fetch_assoc($name)) {
         <ul>
             <li><a href="userportal.php">Home</a></li>
             <li><a href="profile.php">Profile</a></li>
-            <li><form action="logout.php" method="post">
-            <input style="border:none;" type="submit" value="Logout">
+            <li style="padding-left: 11px;"><form action="logout.php" method="post">
+            <input class="side_inp" type="submit" value="Logout">
             </form></li>
         </ul>
     </nav>
@@ -196,9 +233,14 @@ while ($row = $result->fetch_assoc()) {
     
 
     echo '<form class="reaction" action="test.php" method = "post">';
-    echo '<input type="radio" name="vote_' . htmlspecialchars($id) . '" value="likes" required ><span>Like</span>';
-    echo '<input type="radio" name="vote_' . htmlspecialchars($id) . '" value="dislikes" required><span>Dislike</span>';
-    echo '<input type="submit" name="submit" value="Submit" ' . ($disable ? 'disabled' : '') . '>';
+    echo '<label class="reaction_sub">';
+    echo '<input type="radio" name="vote_' . htmlspecialchars($id) . '" value="likes" required style="display:none;" ><span><img class="react_icon" src="like.png" alt=""></span>';
+    echo '</label>';
+    echo '<label class="reaction_sub">';
+    echo '<input type="radio" name="vote_' . htmlspecialchars($id) . '" value="dislikes" required style ="display:none;"><span><img class="react_icon" src="dislike.png" alt=""></span>';
+    echo '</label>';
+    echo '<br>';
+    echo '<input style="margin-left:165px; background-color:whitesmoke;color:black;border-radius:15px;" type="submit" name="submit" value="Submit" ' . ($disable ? 'disabled' : '') . '>';
     echo '<input type="hidden" name="id" value="' . htmlspecialchars($id) . '">'; 
 
 
