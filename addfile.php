@@ -30,6 +30,7 @@ if(isset($_POST["submit"])){
     // Execute the statement
     if ($stmt->execute()) {
         echo "Inserted";
+        header("Location:admindashboard.php");
     } else {
         echo "Error: " . $stmt->error;
     }
@@ -47,23 +48,43 @@ if(isset($_POST["submit"])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            background-color: #d7d2cb;
+        }
+        .addfile{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 175px;
+            margin-left: 620px;
+            border: 2px solid black;
+            background-color: blanchedalmond;
+            width:300px;
+            height: 280px;
+            border-radius: 20px;
+        }
+        form{
+            display:flex;
+            flex-direction: column;
+        }
+    </style>
 </head>
 <body>
+    <div class="addfile">
     <form action="addfile.php" method="post" enctype="multipart/form-data">
         <label for="">Title</label>
         <input type="text" name="title" id="">
         <br>
-        <br>
         <label for="">Description</label>
         <input type="text" name="description" id="">
         <br>
-        <br>
         <label for="">Image</label>
         <input type="file" name="Media" id="">
-
+        <br>
         <input type="submit" value="submit" name="submit">
     </form>
-    
+    </div>
     
 </body>
 </html>

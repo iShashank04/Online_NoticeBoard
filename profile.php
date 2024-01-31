@@ -145,6 +145,7 @@ $stmt->close();
         background-image: url('bg.jpg');
         background-repeat: no-repeat;
         background-size: cover;
+        padding: 45px;
     }
     td{
         text-align: center;
@@ -225,11 +226,7 @@ $stmt->close();
     <div class="main_body">
 <div class="container">
         <h1>User Profile</h1>
-        <input type="file" id="file-input" accept="image/*" style="display: none;">
-        <label for="file-input">
-            <img id="profile-image" src="default-profile-image.jpg" alt="Profile Picture">
-            <div style="text-align: center; color: blue;">Click to Change Profile Picture</div>
-        </label>
+        
         <div class="profile-info">
             <?php
             echo '<p><strong>Name:</strong>'. htmlspecialchars($name1) .'</p>';

@@ -156,7 +156,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         header("Location:admindashboard.php");
                     }
                     else{
-                        echo "password wrong";
+                        echo "<h2 style='color:white'>password wrong</h2>";
                     }
                 }
                 else{

@@ -213,10 +213,10 @@ while ($row = $result->fetch_assoc()) {
     echo '<p>' . htmlspecialchars($date) . '</p>';
     $imageInfo = getimagesize("data:image/jpeg;base64," . base64_encode($imageData));
     if ($imageInfo !== false) {
-        // It's an image
+       
         echo '<img src="data:image/jpeg;base64,' . base64_encode($imageData) . '" alt="Image" />';
     } else {
-        // It's not an image, you can handle PDF or other file types accordingly
+        
         echo '<embed src="data:application/pdf;base64,' . base64_encode($imageData) . '" width="500px" height="300px" />';
     }
 
