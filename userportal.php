@@ -206,6 +206,7 @@ while ($row = $result->fetch_assoc()) {
     $likes = $row["likes"];
     $dislikes = $row["dislikes"];
     $date = $row["time"];
+    $post_id = $row["post_id"];
 
     echo '<div class="post">';
     echo '<h2 class="title">' . htmlspecialchars($title) . '</h2>';
@@ -230,6 +231,8 @@ while ($row = $result->fetch_assoc()) {
     } else {
         echo "Error executing query: " . $conn->error;
     }
+
+    if($post_id == 200){
     
 
     echo '<form class="reaction" action="test.php" method = "post">';
@@ -240,7 +243,7 @@ while ($row = $result->fetch_assoc()) {
     echo '<input type="radio" name="vote_' . htmlspecialchars($id) . '" value="dislikes" required style ="display:none;"><span><img class="react_icon" src="dislike.png" alt=""></span>';
     echo '</label>';
     echo '<br>';
-    echo '<input style="margin-left:165px; background-color:whitesmoke;color:black;border-radius:15px;" type="submit" name="submit" value="Submit" ' . ($disable ? 'disabled' : '') . '>';
+    echo '<input style="margin-left:165px; color:black;border-radius:15px;" type="submit" name="submit" value="Submit" ' . ($disable ? 'disabled' : '') . '>';
     echo '<input type="hidden" name="id" value="' . htmlspecialchars($id) . '">'; 
 
 
@@ -248,6 +251,7 @@ while ($row = $result->fetch_assoc()) {
    
     echo '</div>';
     echo '<div class="sep"></div>';
+    }
 }
 
 

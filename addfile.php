@@ -22,10 +22,10 @@ if(isset($_POST["submit"])){
         //$base64Image = base64_encode($uploadedImageContent);
     }
 
-    $stmt = $conn->prepare("INSERT INTO posts (title, description, image) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO posts (title, description, image,post_id) VALUES (?, ?, ?,?)");
 
     // Bind parameters
-    $stmt->bind_param("sss", $title, $description, $uploadedImageContent);
+    $stmt->bind_param("ssss", $title, $description, $uploadedImageContent,$_SESSION["id"]);
 
     // Execute the statement
     if ($stmt->execute()) {

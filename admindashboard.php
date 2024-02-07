@@ -73,15 +73,19 @@ if(!isset($_SESSION["id"])){
             $likes = $row["likes"];
             $dislikes = $row["dislikes"];
             $date = $row["time"];
+            $post_id = $row["post_id"];
+
+            if($post_id == $_SESSION["id"]){
 
             echo '<div class="post">';
             echo '<h2>' . htmlspecialchars($title) . '</h2>';
             echo '<p>' . htmlspecialchars($description) . '</p>';
             echo '<p>' . htmlspecialchars($date) . '</p>';
-            echo '<p>Likes ' . htmlspecialchars($likes) . '</p>';
-            echo '<p>Dislikes ' . htmlspecialchars($dislikes) . '</p>';
+
             echo '</div>';
+            }
         }
+
         echo '</div>';
 
 ?>
